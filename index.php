@@ -14,7 +14,19 @@
 
     <?php include('inc/header.php')?>
     </header>
-
+    <?php 
+    if (isset($_GET['msg'])) {
+        echo "
+                    <script>
+                        function Redirect() {
+                        window.location = 'index.php';
+                        }
+                        alert('Đăng nhập thành công !') 
+                        Redirect()
+                    </script>
+                    ";
+    }
+    ?>
 
     <!--Content-->
 
@@ -47,35 +59,44 @@
                  <div class="about-img">
                      <img src="asset/images/corporate1.jpg" class="img-responsive" alt="About images">
                      <div class="head-text">
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec iaculis metus vitae ligula elementum ut luctus lorem facilisis.</p>
-                         <span>CEO, Themebean</span>
+                         <p>Xin gửi tới các chủ xe, phương tiện cơ giới bảng thu phí đăng kiểm mới nhất cập nhật mới nhất năm 2021 của Cục đăng kiểm và Bộ GTVT</p>
+                         <span>Website đăng kiểm xe Ô tô trực tuyến</span>
                      </div>
                  </div>
              </div>
              <div class="col-md-7">
                  <div class="about-text">
-                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
-                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                     <p>Đăng kiểm xe ô tô là thủ tục bắt buộc và quan trọng bậc nhất cùng với đăng ký xe nếu chủ xe muốn xe lưu thông trên đường, bao gồm cả xe cũ và xe mới. Khác hoàn toàn với phí bảo trì đường bộ, nếu xe không đăng kiểm đúng hạn thì chủ xe sẽ bị cấm lưu thông và phạt rất nặng.</p>
+                     <p>Đăng kiểm xe ô tô giúp các cơ quan chức năng kiểm tra xem phương tiện của bạn có đủ tiêu chuẩn để tiếp tục lưu thông trên đường hay không. Và để thực hiện công việc này, thì các cơ quan đăng kiểm sẽ thu của chủ xe một mức phí tiêu chuẩn. Tùy thuộc vào từng loại xe, mà cơ quan đăng kiểm sẽ có biểu mức thu phí đăng kiểm riêng.</p>
                  </div>
                  
                  <div class="about-list">
-                     <h4>Some important Feature</h4>
-                     <ul>
-                         <li><i class="fa fa-check-square"></i>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</li>
-                         <li><i class="fa fa-check-square"></i>Lorem ipsum dolor sit amet, consectetur adipiscing adipiscing.</li>
-                         <li><i class="fa fa-check-square"></i>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan.</li>
-                         <li><i class="fa fa-check-square"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                         <li><i class="fa fa-check-square"></i>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</li>
-                         <li><i class="fa fa-check-square"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                     </ul>
+                     <h4>Bảng phí đăng kiểm ô tô</h4>
+                     <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Loại xe</th>
+                            <th scope="col">Phí đăng kiểm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php 
+                         $query = "SELECT * FROM loaixe";
+                         $result = mysqli_query($connect, $query);
+                         $stt = 1;
+                         while ($arUser = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                        ?>
+                            <tr>
+                            <th scope="row"><?php echo $stt ?></th>
+                            <td><?php echo $arUser["tenloaixe"] ?></td>
+                            <td><?php echo $arUser["giadangkiem"] ?> VND</td>
+                            </tr>
+                            <?php $stt++;} ?>
+                        </tbody>
+                        </table>
                      
-                     <h4>More Feature</h4>
-                     <ul>
-                         <li><i class="fa fa-check-square"></i>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</li>
-                         <li><i class="fa fa-check-square"></i>Lorem ipsum dolor sit amet, consectetur adipiscing adipiscing.</li>
-                         <li><i class="fa fa-check-square"></i>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan.</li>
-                         <li><i class="fa fa-check-square"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                     </ul>
+                     
                  </div>
                  
              </div>

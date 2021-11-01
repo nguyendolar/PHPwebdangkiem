@@ -1,3 +1,8 @@
+<?php
+include('inc/connect.php');
+if (isset($_SESSION['taikhoan'])) {
+  header("Location: index.php");
+}?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +15,19 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
+    <?php 
+    if (isset($_GET['fail'])) {
+        echo "
+                    <script>
+                        function Redirect() {
+                        window.location = 'login.php';
+                        }
+                        alert('Sai tài khoản hoặc mật khẩu !') 
+                        Redirect()
+                    </script>
+                    ";
+    }
+    ?>
     <body class="bg-primary">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
@@ -20,19 +38,19 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Quản Trị</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="checklogin.php" method="POST">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="" />
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="" name="taikhoan" />
                                                 <label for="inputEmail">Tài khoản</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="" />
+                                                <input class="form-control" id="inputPassword" type="password" placeholder="" name="matkhau" />
                                                 <label for="inputPassword">Mật khẩu</label>
                                             </div>
                                             
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 
-                                                <a class="btn btn-primary" href="index.html">Đăng nhập</a>
+                                                <button class="btn btn-primary" type="submit" name="login">Đăng nhập</button>
                                             </div>
                                         </form>
                                     </div>

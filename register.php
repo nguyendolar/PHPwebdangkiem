@@ -15,14 +15,26 @@
     <?php include('inc/header.php')?>
   </header>
 
-
+  <?php 
+    if (isset($_GET['fail'])) {
+        echo "
+                    <script>
+                        function Redirect() {
+                        window.location = 'login.php';
+                        }
+                        alert('Đăng ký thất bại !') 
+                        Redirect()
+                    </script>
+                    ";
+    }
+    ?>
   <!-- Start Service Section -->
   <section id="service-section">
     <div class="container">
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          <form class="form-horizontal span4" action="" method="POST" autocomplete="off">
+          <form class="form-horizontal span4" action="checkregister.php" method="POST" >
             <div class="pricing">
               <div class="pricing-header">
               <h3>ĐĂNG KÝ</h3>
@@ -35,7 +47,7 @@
 
                     <div class="col-md-12">
                       <input class="form-control input-lg" id="Username" name="hoten" placeholder=""
-                        type="text" value="">
+                        type="text" value="" required>
                     </div>
 
                   </div>
@@ -46,7 +58,7 @@
 
                     <div class="col-md-12">
                       <input class="form-control input-lg" id="Username" name="Username" placeholder=""
-                        type="text" value="">
+                        type="text" value="" required>
                     </div>
 
                   </div>
@@ -57,7 +69,7 @@
 
                     <div class="col-md-12">
                       <input class="form-control input-lg" id="password" name="password" type="password"
-                        placeholder="">
+                        placeholder="" required>
                     </div>
 
                   </div>

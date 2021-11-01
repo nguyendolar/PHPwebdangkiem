@@ -1,10 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <?php include('inc/head.php')?>
 </head>
-
+<?php 
+    if (isset($_GET['msg'])) {
+        echo "
+                    <script>
+                        function Redirect() {
+                        window.location = 'index.php';
+                        }
+                        alert('Đăng nhập thành công !') 
+                        Redirect()
+                    </script>
+                    ";
+    }
+    ?>
 <body class="sb-nav-fixed">
 <?php include('inc/header.php')?>
     <div id="layoutSidenav">
@@ -14,6 +27,7 @@
                 <div class="container-fluid px-4">
 
                 <h1 class="mt-4">Thống kê</h1>
+
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">

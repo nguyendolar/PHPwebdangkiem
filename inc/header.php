@@ -21,13 +21,10 @@
                             <a class="" href="index.php">Trang chủ</a>
                         </li>
                         <?php if (isset($_SESSION['User'])) {
-                            $email = $_SESSION['User'];
-                            $query = "SELECT username, password FROM user WHERE username='$email'";
-                            $result = mysqli_query($connect, $query);
-                            $num_rows = mysqli_num_rows($result);
+                            
                             ?>
                         <li>
-                            <a class="" href="#">Xin chào, <?php echo $num_rows['fullname'] ?></a>
+                            <a class="" href="#">Xin chào, <?php echo $_SESSION['fullname'] ?></a>
                         </li>
                         <li>
                             <a class="" href="create.php">Tạo hồ sơ</a>

@@ -19,7 +19,30 @@ if (isset($_SESSION['User'])) {
     <?php include('inc/header.php')?>
   </header>
 
-
+  <?php 
+    if (isset($_GET['fail'])) {
+        echo "
+                    <script>
+                        function Redirect() {
+                        window.location = 'login.php';
+                        }
+                        alert('Sai tài khoản hoặc mật khẩu !') 
+                        Redirect()
+                    </script>
+                    ";
+    }
+    if (isset($_GET['msg'])) {
+      echo "
+                  <script>
+                      function Redirect() {
+                      window.location = 'index.php';
+                      }
+                      alert('Đăng ký thành công !') 
+                      Redirect()
+                  </script>
+                  ";
+  }
+    ?>
   <!-- Start Service Section -->
   <section id="service-section">
     <div class="container">
@@ -40,7 +63,7 @@ if (isset($_SESSION['User'])) {
 
                     <div class="col-md-12">
                       <input class="form-control input-lg" id="Username" name="Username" placeholder="Username"
-                        type="text" value="">
+                        type="text" value="" required>
                     </div>
 
                   </div>
@@ -51,7 +74,7 @@ if (isset($_SESSION['User'])) {
 
                     <div class="col-md-12">
                       <input class="form-control input-lg" id="password" name="password" type="password"
-                        placeholder="Password">
+                        placeholder="Password" required>
                     </div>
 
                   </div>
