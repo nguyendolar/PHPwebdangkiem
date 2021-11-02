@@ -79,4 +79,66 @@ if(isset($_POST['deletenhanvien'])){
         header("Location: nhanvien.php?msg=2");
     }
 }
+if(isset($_POST['addnguoidk'])){
+    $bienso = $_POST['bienso'];
+    $loaixe  = $_POST['loaixe'];
+    $sokhung  = $_POST['sokhung'];
+    $hoten = $_POST['hoten'];
+    $sdt  = $_POST['sdt'];
+    $cmnd  = $_POST['cmnd'];
+    $email = $_POST['email'];
+    $ngaydk  = $_POST['ngaydk'];
+    $trangthai  = $_POST['trangthai'];
+  $query = "INSERT INTO profile ( bienso, loaixe, sokhung, hoten, sodienthoai, socmnd, email, ngaydangkiem, trangthai ) VALUES ( '{$bienso}', '{$loaixe}', '{$sokhung}', '{$hoten}', '{$sdt}','{$cmnd}', '{$email}', '{$ngaydk}', '{$trangthai}' ) ";
+  $result = mysqli_query($connect, $query);
+  if ($result) {
+    header("Location: nguoidangky.php?msg=1");
+  } 
+  else {
+      header("Location: nguoidangky.php?msg=2");
+  }
+}
+if(isset($_POST['editnguoidk'])){
+  $bienso = $_POST['bienso'];
+  $loaixe  = $_POST['loaixe'];
+  $sokhung  = $_POST['sokhung'];
+  $hoten = $_POST['hoten'];
+  $sdt  = $_POST['sdt'];
+  $cmnd  = $_POST['cmnd'];
+  $email = $_POST['email'];
+  $ngaydk  = $_POST['ngaydk'];
+  $trangthai  = $_POST['trangthai'];
+  $id  = $_POST['id'];
+  $query = "UPDATE `profile` SET `bienso`='{$bienso}',`loaixe`='{$loaixe}',`sokhung`='{$sokhung}',`hoten`='{$hoten}',`sodienthoai`='{$sdt}',`socmnd`='{$cmnd}',`email`='{$email}',`ngaydangkiem`='{$ngaydk}',`trangthai`='{$trangthai}' WHERE `id`='{$id}'";
+  $result = mysqli_query($connect, $query);
+  if ($result) {
+    header("Location: nguoidangky.php?msg=1");
+  } 
+  else {
+      header("Location: nguoidangky.php?msg=2");
+  }
+}
+if(isset($_POST['deletenguoidk'])){
+  $id  = $_POST['id'];
+  $query = "DELETE FROM profile WHERE `id`='{$id}'";
+  $result = mysqli_query($connect, $query);
+  if ($result) {
+    header("Location: nguoidangky.php?msg=1");
+  } 
+  else {
+      header("Location: nguoidangky.php?msg=2");
+  }
+}
+if(isset($_POST['capnhaptt'])){
+  $trangthai  = $_POST['trangthai'];
+  $id  = $_POST['id'];
+  $query = "UPDATE `profile` SET `trangthai`='{$trangthai}' WHERE `id`='{$id}'";
+  $result = mysqli_query($connect, $query);
+  if ($result) {
+    header("Location: phuongtien.php?msg=1");
+  } 
+  else {
+      header("Location: phuongtien.php?msg=2");
+  }
+}
  ?> 

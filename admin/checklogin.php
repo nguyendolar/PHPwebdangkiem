@@ -21,7 +21,7 @@ if(isset($_POST['login'])){
       $_SESSION['taikhoan'] = $email;
       $_SESSION['hoten'] = $row['fullname'];
       $_SESSION['role'] = $row['role_id'];
-      
+      $_SESSION['chucnang'] = $row['chucnang'];
       }
     }
     }

@@ -27,11 +27,17 @@
                 <div class="container-fluid px-4">
 
                 <h1 class="mt-4">Thống kê</h1>
-
+                <?php $slnguoidung= mysqli_num_rows($connect->query("SELECT * FROM user WHERE role_id = 2"));
+                $slphuongtien= mysqli_num_rows($connect->query("SELECT * FROM profile "));
+                $slnhanvien= mysqli_num_rows($connect->query("SELECT * FROM user WHERE role_id = 3"));
+                $query = "SELECT Sum(b.giadangkiem) AS 'doanhthu' FROM profile as a,loaixe as b WHERE a.loaixe = b.id";
+                $result = mysqli_query($connect, $query);
+                $arUser = mysqli_fetch_array($result, MYSQLI_ASSOC)
+                ?>
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">Số lượng người dùng : 4</div>
+                                <div class="card-body">Số lượng người dùng : <?php echo $slnguoidung ?></div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                    
                                 </div>
@@ -39,7 +45,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-warning text-white mb-4">
-                                <div class="card-body">Phương tiện đăng kiểm : 7</div>
+                                <div class="card-body">Phương tiện đăng kiểm : <?php echo $slphuongtien ?></div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     
                                 </div>
@@ -47,7 +53,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-success text-white mb-4">
-                                <div class="card-body">Số lượng nhân viên : 3</div>
+                                <div class="card-body">Số lượng nhân viên : <?php echo $slnhanvien ?></div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     
                                 </div>
@@ -55,7 +61,7 @@
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger text-white mb-4">
-                                <div class="card-body">Tổng doanh thu : 17.000.000 đ</div>
+                                <div class="card-body">Doanh thu : <?php echo $arUser['doanhthu'] ?> VND</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     
                                 </div>
