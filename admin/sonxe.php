@@ -64,7 +64,7 @@
                                         <td><?php echo $arUser["sokhung"] ?></td>
                                         <td><?php echo $arUser["giadangkiem"] ?> VND</td>
                                         <td>
-                                        <?php if($arUser["trangthai"] == 1){
+                                          <?php if($arUser["trangthai"] == 1){
                                               echo "Đã kiểm định tất cả";
                                           }
                                           else if($arUser["trangthai"] == 2){
@@ -179,7 +179,7 @@
                                     </div>
                                 </div>
                             </div>
-                                        <?php if($arUser["trangthai"] == 4){?>
+                                        <?php if($arUser["trangthai"] == 2){?>
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#<?php echo $idModelEdit ?>">
                                                 Cập nhập
@@ -203,8 +203,10 @@
                                                         <label for="category-film"
                                                             class="col-form-label">Trạng thái:</label>
                                                         <select class="form-select" aria-label="Default select example" id="theloai" name="trangthai" required>
-                                                        <option value="4" selected>Đã kiểm định Khói xe</option>
-                                                            <option value="1" >Đã kiểm định tất cả</option>
+                                                        
+                                                            <option value="2" selected>Đã kiểm định Thắng xe</option>
+                                                            <option value="3" >Đã kiểm định Sơn xe</option>
+                                                        
                                                     </select>
                                                     </div>
                                                         

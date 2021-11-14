@@ -131,11 +131,23 @@ if(isset($_POST['deletenguoidk'])){
 }
 if(isset($_POST['capnhaptt'])){
   $trangthai  = $_POST['trangthai'];
+  $cn  = $_POST['cn'];
   $id  = $_POST['id'];
   $query = "UPDATE `profile` SET `trangthai`='{$trangthai}' WHERE `id`='{$id}'";
   $result = mysqli_query($connect, $query);
   if ($result) {
+    if($cn == 4){
+      header("Location: thangxe.php?msg=1");
+    }
+    else if($cn == 5){
+      header("Location: sonxe.php?msg=1");
+    }
+    else if($cn == 6){
+      header("Location: khoixe.php?msg=1");
+    }
+    else{
     header("Location: phuongtien.php?msg=1");
+    }
   } 
   else {
       header("Location: phuongtien.php?msg=2");

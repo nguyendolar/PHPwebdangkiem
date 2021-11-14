@@ -23,6 +23,21 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Phương tiện
                             </a>
+                        <?php } else if( $_SESSION['chucnang'] == 4){?>
+                            <a class="nav-link" href="thangxe.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Kiểm định Thắng xe
+                            </a>
+                        <?php } else if( $_SESSION['chucnang'] == 5){?>
+                            <a class="nav-link" href="sonxe.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Kiểm định Sơn xe
+                            </a>
+                        <?php } else if( $_SESSION['chucnang'] == 6){?>
+                            <a class="nav-link" href="khoixe.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Kiểm định Khói xe
+                            </a>
                         <?php } else { ?>
                         <a class="nav-link" href="nguoidung.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
