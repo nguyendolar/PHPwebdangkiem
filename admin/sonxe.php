@@ -198,6 +198,7 @@
                                                 <div class="modal-body">
                                                     <form action="function.php" method="POST" >
                                                     <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $arUser["id"] ?>">
+                                                    <input type="hidden" class="form-control" id="id" name="email" value="<?php echo $arUser["email"] ?>">
                                                     <input type="hidden" class="form-control" id="cn" name="cn" value="<?php echo $_SESSION['chucnang']?>">
                                                     <div class="mb-3">
                                                         <label for="category-film"

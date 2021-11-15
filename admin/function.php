@@ -1,6 +1,9 @@
 <?php
 include('inc/connect.php');
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+include('inc/library.php');
+include('vendor/autoload.php');
 if(isset($_POST['addnguoidung'])){
     $taikhoan = $_POST['taikhoan'];
     $matkhau  = $_POST['matkhau'];
@@ -133,6 +136,47 @@ if(isset($_POST['capnhaptt'])){
   $trangthai  = $_POST['trangthai'];
   $cn  = $_POST['cn'];
   $id  = $_POST['id'];
+  $email  = $_POST['email'];
+  //guimail
+  if($cn == 4){
+    $tt = 'đã được kiểm định Thắng xe';
+  }
+  else if($cn == 5){
+    $tt = 'đã được kiểm định Sơn xe';
+  }
+  else if($cn == 6){
+    $tt = 'đã được kiểm định Khói xe';
+  }
+  else{
+    $tt = 'đã được kiểm định tất cả ';
+  }
+  $noidung = 'Chúc mừng bạn ! <br> Xe của bạn '.$tt.' thành công!';
+  $mail = new PHPMailer(true);                              
+      try {
+          $mail->CharSet = "UTF-8";
+          $mail->SMTPDebug = 0;                                 
+          $mail->isSMTP();                                      
+          $mail->Host = SMTP_HOST;  
+          $mail->SMTPAuth = true;                               
+          $mail->Username = SMTP_UNAME;                 
+          $mail->Password = SMTP_PWORD;                           
+          $mail->SMTPSecure = 'ssl';                            
+          $mail->Port = SMTP_PORT;                                   
+          $mail->setFrom(SMTP_UNAME, "Website Đăng Kiểm");
+          $mail->addAddress($email, $email);     
+          $mail->addReplyTo(SMTP_UNAME, 'Website Đăng Kiểm');
+          $mail->isHTML(true);                                  
+          $mail->Subject = 'Thông báo kiểm định';
+          $mail->Body = $noidung;
+          $mail->AltBody = $noidung; 
+          $resul = $mail->send();
+          if (!$resul) {
+              $error = "Có lỗi xảy ra trong quá trình gửi mail";
+          }
+      } catch (Exception $e) {
+          echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+      }
+  //guimail
   $query = "UPDATE `profile` SET `trangthai`='{$trangthai}' WHERE `id`='{$id}'";
   $result = mysqli_query($connect, $query);
   if ($result) {
