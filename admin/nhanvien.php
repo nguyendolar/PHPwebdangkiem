@@ -28,6 +28,7 @@
                                 <th scope="col" style="width:130px">Kiểm định <br>Thắng xe</th>
                                 <th scope="col" style="width:130px">Kiểm định <br>Sơn xe</th>
                                 <th scope="col" style="width:130px">Kiểm định <br>Khói xe</th>
+                                <th scope="col" style="width:80px">Duyệt <br>hồ sơ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,6 +44,7 @@
                                 <td><?php if($arUsers["chucnang"] == 4 ){echo "X";}?></td>
                                 <td><?php if($arUsers["chucnang"] == 5 ){echo "X";}?></td>
                                 <td><?php if($arUsers["chucnang"] == 6 ){echo "X";}?></td>
+                                <td><?php if($arUsers["chucnang"] == 7 ){echo "X";}?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -181,6 +183,7 @@
                                                                     <option value="4" >Kiểm định Thắng xe</option>
                                                                     <option value="5" >Kiểm định Sơn xe</option>
                                                                     <option value="6" >Kiểm định Khói xe</option>
+                                                                    <option value="7" >Duyệt hồ sơ</option>
                                                                 </select>
                                                        </div>
                                                        <div class="modal-footer">
@@ -231,6 +234,10 @@
                                                                     <option value="1" >Quản lý người dùng</option>
                                                                     <option value="2" >Quản lý người đăng ký</option>
                                                                     <option value="3" >Quản lý phương tiện</option>
+                                                                    <option value="4" >Kiểm định Thắng xe</option>
+                                                                    <option value="5" >Kiểm định Sơn xe</option>
+                                                                    <option value="6" >Kiểm định Khói xe</option>
+                                                                    <option value="7" >Duyệt hồ sơ</option>
                                                                 </select>
                                                        </div>
                                                        <div class="modal-footer">

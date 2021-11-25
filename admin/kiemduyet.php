@@ -50,7 +50,7 @@
                                 <tbody>
                                 <?php 
                                    
-                                   $query = "SELECT a.*,b.tenloaixe,b.giadangkiem FROM profile as a,loaixe as b WHERE a.loaixe = b.id ORDER BY a.id DESC";
+                                   $query = "SELECT a.*,b.tenloaixe,b.giadangkiem FROM profile as a,loaixe as b WHERE a.loaixe = b.id AND a.trangthai = 5 ORDER BY a.id DESC";
                                    $result = mysqli_query($connect, $query);
                                    $stt = 1;
                                    while ($arUser = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -64,7 +64,7 @@
                                         <td><?php echo $arUser["sokhung"] ?></td>
                                         <td><?php echo $arUser["giadangkiem"] ?> VND</td>
                                         <td>
-                                        <?php if($arUser["trangthai"] == 1){
+                                          <?php if($arUser["trangthai"] == 1){
                                               echo "Đã kiểm định tất cả";
                                           }
                                           else if($arUser["trangthai"] == 2){
@@ -75,6 +75,15 @@
                                           }
                                           else if($arUser["trangthai"] == 4){
                                             echo "Đã kiểm định Khói xe";
+                                          }
+                                          else if($arUser["trangthai"] == 5){
+                                            echo "Chờ duyệt";
+                                          }
+                                          else if($arUser["trangthai"] == 6){
+                                            echo "Đã duyệt";
+                                          }
+                                          else if($arUser["trangthai"] == 7){
+                                            echo "Không được duyệt";
                                           }
                                           else{
                                             echo "Chưa kiểm định";
@@ -126,21 +135,7 @@
                                                             <label for="category-film"
                                                                    class="col-form-label" style="font-weight:bold;width : 150px">Trạng thái</label>
                                                                    <strong>:</strong>&emsp;&emsp;
-                                                                   <?php if($arUser["trangthai"] == 1){
-                                              echo "Đã kiểm định tất cả";
-                                          }
-                                          else if($arUser["trangthai"] == 2){
-                                            echo "Đã kiểm định Thắng xe";
-                                          }
-                                          else if($arUser["trangthai"] == 3){
-                                            echo "Đã kiểm định Sơn xe";
-                                          }
-                                          else if($arUser["trangthai"] == 4){
-                                            echo "Đã kiểm định Khói xe";
-                                          }
-                                          else{
-                                            echo "Đã duyệt";
-                                          }?>
+                                                                   Đang chờ chuyệt
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
@@ -179,7 +174,7 @@
                                     </div>
                                 </div>
                             </div>
-                                        <?php if($arUser["trangthai"] == 4){?>
+                                        <?php if($arUser["trangthai"] == 5){?>
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#<?php echo $idModelEdit ?>">
                                                 Cập nhập
@@ -204,8 +199,10 @@
                                                         <label for="category-film"
                                                             class="col-form-label">Trạng thái:</label>
                                                         <select class="form-select" aria-label="Default select example" id="theloai" name="trangthai" required>
-                                                        <option value="4" selected>Đã kiểm định Khói xe</option>
-                                                            <option value="1" >Đã kiểm định tất cả</option>
+                                                            <option value="" selected>Chọn trạng thái </option>
+                                                            <option value="6" >Duyệt </option>
+                                                            <option value="7" >Không duyệt</option>
+                                                        
                                                     </select>
                                                     </div>
                                                         

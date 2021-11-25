@@ -38,6 +38,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Kiểm định Khói xe
                             </a>
+                        <?php } else if( $_SESSION['chucnang'] == 7){?>
+                            <a class="nav-link" href="kiemduyet.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Duyệt hồ sơ
+                            </a>
                         <?php } else { ?>
                         <a class="nav-link" href="nguoidung.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>

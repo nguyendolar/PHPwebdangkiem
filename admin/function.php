@@ -147,6 +147,9 @@ if(isset($_POST['capnhaptt'])){
   else if($cn == 6){
     $tt = 'đã được kiểm định Khói xe';
   }
+  else if($cn == 7){
+    $tt = 'đã được duyệt và chờ kiểm định';
+  }
   else{
     $tt = 'đã được kiểm định tất cả ';
   }
@@ -188,6 +191,9 @@ if(isset($_POST['capnhaptt'])){
     }
     else if($cn == 6){
       header("Location: khoixe.php?msg=1");
+    }
+    else if($cn == 7){
+      header("Location: kiemduyet.php?msg=1");
     }
     else{
     header("Location: phuongtien.php?msg=1");

@@ -13,8 +13,8 @@ if(isset($_POST['btnLogin'])){
     $cmnd  = $_POST['cmnd'];
     $email = $_POST['email'];
     $ngaydk  = $_POST['ngaydk'];
-    $noidung = 'Xin chào <strong> '.$hoten.' </strong> !<br> Hồ sơ đăng ký kiểm định của bạn cho xe <strong>'.$bienso.'</strong> đã được tạo thành công.<br> Trạng thái :<strong> Chưa kiểm định </strong>';
-    $query = "INSERT INTO profile ( bienso, loaixe, sokhung, hoten, sodienthoai, socmnd, email, ngaydangkiem, trangthai ) VALUES ( '{$bienso}', '{$loaixe}', '{$sokhung}', '{$hoten}', '{$sdt}','{$cmnd}', '{$email}', '{$ngaydk}', 0 ) ";
+    $noidung = 'Xin chào <strong> '.$hoten.' </strong> !<br> Hồ sơ đăng ký kiểm định của bạn cho xe <strong>'.$bienso.'</strong> đã được tạo thành công.<br> Trạng thái :<strong> Đang chờ duyệt </strong>';
+    $query = "INSERT INTO profile ( bienso, loaixe, sokhung, hoten, sodienthoai, socmnd, email, ngaydangkiem, trangthai ) VALUES ( '{$bienso}', '{$loaixe}', '{$sokhung}', '{$hoten}', '{$sdt}','{$cmnd}', '{$email}', '{$ngaydk}', 5 ) ";
     $result = mysqli_query($connect, $query);
     if ($result) {
       $mail = new PHPMailer(true);                              
