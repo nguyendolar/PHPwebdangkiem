@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 02, 2021 lúc 02:46 PM
+-- Thời gian đã tạo: Th12 02, 2021 lúc 03:56 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -73,7 +73,20 @@ INSERT INTO `profile` (`id`, `bienso`, `loaixe`, `sokhung`, `hoten`, `sodienthoa
 (1, '92C6 - 632145', 1, '92C6 - 632145', 'Lê Văn Nguyên', 394073758, 206325110, 'nguyencao@gmail.com', '2021-11-02 21:10:00', 1),
 (2, '92C6 - 632145', 7, '92C6 - 632145', 'Đăng Hoàng', 123456789, 203315220, 'hung29manh@gmail.com', '2021-11-02 10:26:00', 1),
 (4, '92C6 - 632145', 7, '92C6 - 632145', 'VinaEnter Edu', 123456789, 4444, 'hung29manh@gmail.com', '2021-11-02 15:49:00', 1),
-(5, '91D6 - 122457', 2, '91D6 - 122457', 'Bùi Dũng Đinh', 394073512, 201356879, 'dungdinh@gmail.com', '2021-11-03 22:40:00', 0);
+(5, '91D6 - 122457', 2, '91D6 - 122457', 'Bùi Dũng Đinh', 394073512, 201356879, 'dungdinh@gmail.com', '2021-11-03 22:40:00', 1),
+(6, '92C6 - 632145', 2, '92C6 - 632145', 'Nguyễn Văn An', 394073156, 203144560, 'nguyenvanan@gmail.com', '2021-11-08 00:00:00', 1),
+(7, '91D6 - 122457', 4, '91D6 - 122457', 'Minh nhã', 123456789, 44445, 'hung29manh@gmail.com', '2021-11-07 17:59:00', 0),
+(9, '92C6 - 632145', 1, '92C6 - 632145', 'VinaEnter Edu', 395412365, 4444, 'nguyencaonguyencmu@gmail.com', '2021-11-15 12:41:00', 1),
+(10, '92C6 - 632145', 3, '92C6 - 632145', 'Minh nhã', 123456789, 4444, 'nguyencaonguyencmu@gmail.com', '2021-11-15 15:29:00', 0),
+(11, '92B1 - 14056', 7, '92B1 - 14056', 'Nguyễn Minh Nhã', 394073759, 4444, 'nguyencaonguyencmu@gmail.com', '2021-11-15 15:37:00', 0),
+(12, '92C6 - 632145', 1, '92C6 - 632145', 'VinaEnter Edu', 123456789, 4444, 'nguyencaonguyencmu@gmail.com', '2021-11-15 15:38:00', 2),
+(13, '92C6 - 632145', 1, '92C6 - 632145', 'VinaEnter Edu', 123456789, 4444, 'nguyencaonguyencmu@gmail.com', '2021-11-15 15:40:00', 2),
+(14, '92C6 - 632145', 2, '92C6 - 632145', 'Nhân viên', 123456789, 4444, 'nguyencaonguyencmu@gmail.com', '2021-11-15 15:42:00', 1),
+(15, '92C6 - 632145', 1, '92C6 - 632145', 'dá', 123456789, 4444, 'n2ftechnology@gmail.com', '2021-11-17 14:35:00', 0),
+(16, '92B1 - 14056', 3, '92C6 - 632145', 'Bùi Xuân', 123456789, 4444, 'nguyencaonguyencmu@gmail.com', '2021-11-25 11:19:00', 2),
+(17, '92C6 - 632145', 1, '92C6 - 632145', 'VinaEnter Edu', 123456789, 4444, 'nguyencaonguyencmu@gmail.com', '2021-12-07 14:26:00', 7),
+(18, '92C6 - 632145', 1, '92C6 - 632145', 'Minh nhã', 123456789, 4444, 'nguyencaonguyencmu@gmail.com', '2021-12-22 15:33:00', 0),
+(19, '91D6 - 122457', 1, '92C6 - 632146', 'VinaEnter Edu', 123456789, 4444, 'nguyencaonguyencmu@gmail.com', '2021-12-17 17:39:00', 1);
 
 -- --------------------------------------------------------
 
@@ -122,10 +135,14 @@ INSERT INTO `user` (`id`, `fullname`, `username`, `password`, `role_id`, `chucna
 (5, 'Phạm Lê Hoàng', 'lehoang', 'lehoang', 2, NULL),
 (8, 'Xuân Thu', 'nhanvien', 'nhanvien', 3, 2),
 (9, 'Phú Hoàng', 'phuhoang', 'phuhoang', 2, NULL),
-(10, 'Quang Huy', 'quanghuy', 'quanghuy', 3, 3),
+(10, 'Quang Huy', 'quanghuy', 'quanghuy', 3, 6),
 (11, 'VinaEnter Edu', 'huong', 'dangnha', 2, NULL),
 (12, 'Dũng Đinh', 'dungdinh', 'dungdinh', 2, NULL),
-(13, 'Viên Nhân', 'viennhan', 'viennhan', 3, 3);
+(13, 'Viên Nhân', 'viennhan', 'viennhan', 3, 4),
+(14, 'Nguyễn Văn A', 'nguyenvana', 'nguyenvana', 2, NULL),
+(16, 'Đỗ Phát', 'dophat', 'dophat', 3, 5),
+(17, 'Kiểm duyệt', 'kiemduyet', '123456', 3, 7),
+(18, 'Đăng Huy', 'danghuy', 'danghuy', 2, NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -169,7 +186,7 @@ ALTER TABLE `loaixe`
 -- AUTO_INCREMENT cho bảng `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `role`
@@ -181,7 +198,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
