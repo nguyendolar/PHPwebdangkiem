@@ -64,7 +64,7 @@
                                         <td><?php echo $arUser["sokhung"] ?></td>
                                         <td><?php echo $arUser["giadangkiem"] ?> VND</td>
                                         <td>
-                                          <?php if($arUser["trangthai"] == 1){
+                                        <?php if($arUser["trangthai"] == 1){
                                               echo "Đã kiểm định tất cả";
                                           }
                                           else if($arUser["trangthai"] == 2){
@@ -76,8 +76,17 @@
                                           else if($arUser["trangthai"] == 4){
                                             echo "Đã kiểm định Khói xe";
                                           }
+                                          else if($arUser["trangthai"] == 5){
+                                            echo "Chờ duyệt";
+                                          }
+                                          else if($arUser["trangthai"] == 6){
+                                            echo "Đã duyệt";
+                                          }
+                                          else if($arUser["trangthai"] == 7){
+                                            echo "Không được duyệt";
+                                          }
                                           else{
-                                            echo "Chưa kiểm định";
+                                            echo "Kiểm định thất bại";
                                           }?>
                                         </td>
                                         <td>
@@ -138,8 +147,17 @@
                                           else if($arUser["trangthai"] == 4){
                                             echo "Đã kiểm định Khói xe";
                                           }
+                                          else if($arUser["trangthai"] == 5){
+                                            echo "Chờ duyệt";
+                                          }
+                                          else if($arUser["trangthai"] == 6){
+                                            echo "Đã duyệt";
+                                          }
+                                          else if($arUser["trangthai"] == 7){
+                                            echo "Không được duyệt";
+                                          }
                                           else{
-                                            echo "Chưa kiểm định";
+                                            echo "Kiểm định thất bại";
                                           }?>
                                                         </div>
                                                     </div>
@@ -204,9 +222,9 @@
                                                         <label for="category-film"
                                                             class="col-form-label">Trạng thái:</label>
                                                         <select class="form-select" aria-label="Default select example" id="theloai" name="trangthai" required>
-                                                        
-                                                            <option value="3" selected>Đã kiểm định Sơn xe</option>
-                                                            <option value="4" >Đã kiểm định Khói xe</option>
+                                                        <option value="" selected >Chọn trạng thái</option>
+                                                            <option value="0" >Kiểm định thất bại</option>
+                                                            <option value="4" >Đã kiểm định Sơn xe</option>
                                                         
                                                     </select>
                                                     </div>

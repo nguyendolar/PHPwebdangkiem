@@ -153,7 +153,15 @@ if(isset($_POST['capnhaptt'])){
   else{
     $tt = 'đã được kiểm định tất cả ';
   }
+  if($trangthai == 0){
+    $noidung = 'Thông báo ! <br> Xe của bạn kiểm định thất bại!';
+  }
+  else if($trangthai == 7){
+    $noidung = 'Thông báo ! <br> Hồ sơ kiểm định Xe của bạn không được duyệt!';
+  }
+  else{
   $noidung = 'Chúc mừng bạn ! <br> Xe của bạn '.$tt.' thành công!';
+  }
   $mail = new PHPMailer(true);                              
       try {
           $mail->CharSet = "UTF-8";

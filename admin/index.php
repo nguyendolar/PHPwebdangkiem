@@ -29,7 +29,15 @@
                 <h1 class="mt-4">Thống kê</h1>
                 <?php $slnguoidung= mysqli_num_rows($connect->query("SELECT * FROM user WHERE role_id = 2"));
                 $slphuongtien= mysqli_num_rows($connect->query("SELECT * FROM profile "));
+                $thatbai= mysqli_num_rows($connect->query("SELECT * FROM profile WHERE trangthai = 0 "));
+                $tatca= mysqli_num_rows($connect->query("SELECT * FROM profile WHERE trangthai = 1 "));
+                $thangxe= mysqli_num_rows($connect->query("SELECT * FROM profile WHERE trangthai = 2 "));
+                $sonxe= mysqli_num_rows($connect->query("SELECT * FROM profile WHERE trangthai = 3 "));
+                $khoixe= mysqli_num_rows($connect->query("SELECT * FROM profile WHERE trangthai = 4 "));
+                $choduyet= mysqli_num_rows($connect->query("SELECT * FROM profile WHERE trangthai = 5 "));
+                $koduyet= mysqli_num_rows($connect->query("SELECT * FROM profile WHERE trangthai = 7 "));
                 $slnhanvien= mysqli_num_rows($connect->query("SELECT * FROM user WHERE role_id = 3"));
+                $daduyet = $slphuongtien - ($choduyet + $koduyet);
                 $query = "SELECT Sum(b.giadangkiem) AS 'doanhthu' FROM profile as a,loaixe as b WHERE a.loaixe = b.id";
                 $result = mysqli_query($connect, $query);
                 $arUser = mysqli_fetch_array($result, MYSQLI_ASSOC)
@@ -62,6 +70,70 @@
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger text-white mb-4">
                                 <div class="card-body">Doanh thu : <?php echo $arUser['doanhthu'] ?> VND</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-primary text-white mb-4">
+                                <div class="card-body"><strong><?php echo $choduyet ?></strong> phương tiện chờ duyệt</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-warning text-white mb-4">
+                                <div class="card-body"><strong><?php echo $daduyet ?></strong> phương tiện được duyệt</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-success text-white mb-4">
+                                <div class="card-body"><strong><?php echo $koduyet ?></strong> phương tiện không duyệt</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-danger text-white mb-4">
+                                <div class="card-body"><strong><?php echo $thatbai ?></strong> kiểm định thất bại</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-primary text-white mb-4">
+                                <div class="card-body"><strong><?php echo $thangxe ?></strong> đã kiểm định Thắng xe</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-warning text-white mb-4">
+                                <div class="card-body"><strong><?php echo $sonxe ?></strong> đã kiểm định Sơn xe</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-success text-white mb-4">
+                                <div class="card-body"><strong><?php echo $khoixe ?></strong> đã kiểm định Khói xe</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-danger text-white mb-4">
+                                <div class="card-body"><strong><?php echo $tatca ?></strong> đã kiểm định tất cả</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     
                                 </div>
